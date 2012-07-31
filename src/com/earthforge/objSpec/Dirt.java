@@ -1,7 +1,10 @@
-package com.earthforge.code;
+package com.earthforge.objSpec;
 
 import com.utilis.game.obj.*;
 import java.awt.*;
+
+import com.earthforge.code.*;
+import com.earthforge.obj.*;
 
 public class Dirt extends Tile {
 	
