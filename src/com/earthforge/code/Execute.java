@@ -7,6 +7,7 @@ import java.net.URLDecoder;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
+import com.earthforge.obj.Biome;
 import com.utilis.Utilis;
 
 public class Execute {

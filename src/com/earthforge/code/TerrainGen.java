@@ -14,7 +14,7 @@ public class TerrainGen {
 		double changeRate = 0;
 		int direction = 0;
 		boolean continueDirection = false;
-		for(int i=0; i<=length; i++){
+		for(int i=0; i<length; i++){
 			if (!continueDirection){
 				direction = RandomHelper.randomInt(0,2);
 			}
