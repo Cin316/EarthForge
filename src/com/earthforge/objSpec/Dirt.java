@@ -6,7 +6,7 @@ import java.awt.*;
 import com.earthforge.code.*;
 import com.earthforge.obj.*;
 
-public class Dirt extends Tile {
+public class Dirt extends Block {
 	
 	//Image is of dirt.
 	public static Image image = Execute.readImageFromCodebase("dirt.png");
@@ -16,6 +16,21 @@ public class Dirt extends Tile {
 	
 	public Dirt(int x, int y) {
 		super(image, collide, x, y);
+		hasAction = true;
+	}
+
+
+	@Override
+	public void performAction() {
+		//Wait...
+		//Destroy.
+		//Spawn dirt entity.
+	}
+
+
+	@Override
+	public boolean getHasAction() {
+		return hasAction;
 	}
 	
 	
