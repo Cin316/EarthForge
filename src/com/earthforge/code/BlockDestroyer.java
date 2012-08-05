@@ -1,6 +1,7 @@
-package com.earthforge.obj;
+package com.earthforge.code;
 
 import com.utilis.game.obj.*;
+import com.earthforge.obj.*;
 
 public class BlockDestroyer {
 	
