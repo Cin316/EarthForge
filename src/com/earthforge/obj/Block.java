@@ -18,6 +18,9 @@ public abstract class Block extends Tile implements ThingActions {
 	public Block(Image i, CollisionBox c, int x, int y) {
 		super(i, c, x, y);
 	}
-
-
+	
+	public boolean getHasAction(){
+		return hasAction;
+	}
+	
 }

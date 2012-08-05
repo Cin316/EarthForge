@@ -12,7 +12,7 @@ public class Dirt extends Block {
 	private long startTime = 0L;
 	
 	//Image is of dirt.
-	public static Image image = Execute.readImageFromCodebase("dirt.png");
+	public static Image image = Execute.readImageFromCodebase("images/Dirt.png");
 	//CollisionBox is completely full.
 	public static CollisionBox collide = new CollisionBox(Execute.tileWidth, Execute.tileHeight, true);
 	//How long it takes to destroy Dirt.  Measured in milliseconds.
@@ -40,13 +40,6 @@ public class Dirt extends Block {
 		timeDiff = 0L;
 		startTime = 0L;
 	}
-
-
-	@Override
-	public boolean getHasAction() {
-		return hasAction;
-	}
-	
 	
 	
 }
