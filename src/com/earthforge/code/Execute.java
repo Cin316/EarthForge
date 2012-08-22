@@ -7,13 +7,13 @@ import java.net.URLDecoder;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
-import com.earthforge.obj.Biome;
 import com.utilis.Utilis;
 
 public class Execute {
 	
-	public static int tileWidth = 32;
-	public static int tileHeight = 32;
+	public static final int tileWidth = 32;
+	public static final int tileHeight = 32;
+	public static final int worldHeight = 128;
 	
 	public static void main(String[] args) {
 		
