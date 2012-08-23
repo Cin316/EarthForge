@@ -12,7 +12,7 @@ public class Grass extends Block{
 	private long timeDiff = 0L;
 	private long startTime = 0L;
 	
-	//Image is of dirt.
+	//Image is of grass.
 	public static Image image = Execute.readImageFromCodebase("images/Grass.png");
 	//CollisionBox is completely full.
 	public static CollisionBox collide = new CollisionBox(Execute.tileWidth, Execute.tileHeight, true);
@@ -24,7 +24,6 @@ public class Grass extends Block{
 		hasAction = true;
 	}
 	
-	@Override
 	public void performAction() {
 		if (startTime == 0L){
 			startTime = System.currentTimeMillis();
