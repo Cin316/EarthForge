@@ -13,7 +13,7 @@ public class Grass extends Block{
 	private long startTime = 0L;
 	
 	//Image is of grass.
-	public static Image image = Execute.readImageFromCodebase("images/Grass.png");
+	public static Image image = Execute.readImageFromCodebase("/images/Grass.png");
 	//CollisionBox is completely full.
 	public static CollisionBox collide = new CollisionBox(Execute.tileWidth, Execute.tileHeight, true);
 	//How long it takes to destroy Grass.  Measured in milliseconds.
