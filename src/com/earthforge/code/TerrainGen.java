@@ -3,11 +3,12 @@ package com.earthforge.code;
 import com.utilis.*;
 import java.awt.*;
 
-import com.earthforge.obj.Biome;
+import com.earthforge.obj.*;
+import com.earthforge.objSpec.*;
 
 public class TerrainGen {
 	
-	public static int[] generateTerrain(Biome b, int length, int height){
+	public static int[] generateHeights(Biome b, int length, int height){
 		int currentHeight = RandomHelper.randomInt(1, height);
 		int[] heightNums =  new int[length];
 		double realHeight = currentHeight;
@@ -44,7 +45,7 @@ public class TerrainGen {
 		}
 		return heightNums;
 	}
-	public static int[] generateTerrain(Biome b, int length, int height, int startValue){
+	public static int[] generateHeights(Biome b, int length, int height, int startValue){
 		int currentHeight = startValue;
 		int[] heightNums =  new int[length];
 		double realHeight = currentHeight;
@@ -80,6 +81,25 @@ public class TerrainGen {
 			
 		}
 		return heightNums;
+	}
+	
+	public static World generateWorldWithHeights(int[] i){
+		
+		World world = new World(i.length);
+		
+		for(int x=0; x<i.length; x++){
+			for(int y=0; y<Execute.worldHeight; y++){
+				if(y < i[x]){
+					world.setTile(x, y, new Dirt(x*Execute.tileWidth, y*Execute.tileHeight));
+				}else if(y == i[x]){
+					world.setTile(x, y, new Grass(x*Execute.tileWidth, y*Execute.tileHeight));
+				}else if(y > i[x]){
+					world.setTile(x, y, new Air(x*Execute.tileWidth, y*Execute.tileHeight));
+				}
+			}
+		}
+		
+		return world;
 	}
 	
 }
