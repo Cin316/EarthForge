@@ -7,7 +7,7 @@ import com.earthforge.objSpec.Air;
 public class BlockDestroyer {
 	
 	public static void destroy(Block b, Entity drop){
-		b = new Air(b.getHeight(), b.getWidth());
+		b = new Air(b.getX(), b.getY());
 		if(!(drop == null)){
 			//Spawn drop.
 		}
