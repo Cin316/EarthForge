@@ -89,11 +89,11 @@ public class TerrainGen {
 		
 		for(int x=0; x<i.length; x++){
 			for(int y=0; y<Execute.worldHeight; y++){
-				if(y < i[x]){
+				if(y > i[x]){
 					world.setTile(x, y, new Dirt(x*Execute.tileWidth, y*Execute.tileHeight));
 				}else if(y == i[x]){
 					world.setTile(x, y, new Grass(x*Execute.tileWidth, y*Execute.tileHeight));
-				}else if(y > i[x]){
+				}else if(y < i[x]){
 					world.setTile(x, y, new Air(x*Execute.tileWidth, y*Execute.tileHeight));
 				}
 			}
