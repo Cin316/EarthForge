@@ -7,9 +7,9 @@ import com.earthforge.obj.*;
 import com.earthforge.objSpec.*;
 
 public class TerrainGen {
-	// TODO Change int[] generation code to stop generating above the height.
+	
 	public static int[] generateHeights(Biome b, int length, int height){
-		int currentHeight = RandomHelper.randomInt(1, height);
+		int currentHeight = RandomHelper.randomInt(0, height);
 		int[] heightNums =  new int[length];
 		double realHeight = currentHeight;
 		double changeRate = 0;
@@ -17,21 +17,31 @@ public class TerrainGen {
 		boolean continueDirection = false;
 		for(int i=0; i<length; i++){
 			if (!continueDirection){
-				direction = RandomHelper.randomInt(0,2);
+				//Checks if current height is equal to the height.
+				if(currentHeight>=height){
+					int direction1 = RandomHelper.randomInt(0,1);
+					if(direction1==0){
+						direction = 0;
+					}else if (direction1==1){
+						direction = 2;
+					}
+				}else{
+					direction = RandomHelper.randomInt(0,2);
+				}
 			}
 			if(direction==0){
 				//Go straight.
 				realHeight = Math.round(realHeight); //Brings realHeight to a .0 value.
 				currentHeight = (int) realHeight;
 			}else if(direction==1){
-				//Go down.
+				//Go up.
 				if (!continueDirection){
 					changeRate = RandomHelper.randomDouble(b.getMaximumChange(), b.getMinimumChange());
 				}
 				realHeight = realHeight - changeRate;
 				currentHeight = (int) Math.ceil(realHeight);
 			}else if (direction==2){
-				//Go up.
+				//Go down.
 				if (!continueDirection){
 					changeRate = RandomHelper.randomDouble(b.getMaximumChange(), b.getMinimumChange());
 				}
