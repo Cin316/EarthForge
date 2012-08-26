@@ -7,7 +7,7 @@ import com.earthforge.obj.*;
 import com.earthforge.objSpec.*;
 
 public class TerrainGen {
-	
+	// TODO Change int[] generation code to stop generating above the height.
 	public static int[] generateHeights(Biome b, int length, int height){
 		int currentHeight = RandomHelper.randomInt(1, height);
 		int[] heightNums =  new int[length];
