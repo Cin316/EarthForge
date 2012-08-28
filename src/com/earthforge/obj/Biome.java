@@ -1,9 +1,10 @@
 package com.earthforge.obj;
 
-public class Biome {
+public abstract class Biome {
 	
-	private double minimumChange;
-	private double maximumChange;
+	protected double minimumChange;
+	protected double maximumChange;
+	protected String name;
 	
 	public Biome(double maxChange){
 		minimumChange = 0;

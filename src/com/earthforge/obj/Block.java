@@ -5,7 +5,7 @@ import java.awt.Image;
 import com.utilis.game.obj.CollisionBox;
 import com.utilis.game.obj.Tile;
 
-public abstract class Block extends Tile implements ThingActions {
+public abstract class Block extends Tile implements Action {
 	
 	protected boolean hasAction;
 	
