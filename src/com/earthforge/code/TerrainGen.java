@@ -93,7 +93,7 @@ public class TerrainGen {
 		return heightNums;
 	}
 	
-	public static World generateWorldWithHeights(int[] i){
+	public static World generateWorldWithDirt(int[] i){
 		
 		World world = new World(i.length);
 		
