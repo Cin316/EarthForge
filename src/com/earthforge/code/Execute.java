@@ -1,16 +1,20 @@
 package com.earthforge.code;
 
 import java.awt.Color;
+import java.awt.Frame;
 import java.awt.Image;
 import java.io.File;
 import java.net.URLDecoder;
 
 import javax.imageio.ImageIO;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import com.earthforge.obj.*;
+import com.earthforge.objSpec.*;
 import com.utilis.game.gui.*;
+import com.utilis.game.obj.Entity;
 import com.utilis.game.obj.Screen;
 import com.utilis.game.obj.ScrollingEntity;
 import com.utilis.Utilis;
@@ -25,7 +29,20 @@ public class Execute {
 	public static void main(String[] args) {
 		
 		System.out.println("EarthForge " + version + ".");
+		displayWindowWithWorld();
+	}
 	
+	public static void displayWindowWithWorld(){
+		int[] nums = TerrainGen.generateHeights(new Grasslands(1.1, 0.2), 10, worldHeight);
+		World world = TerrainGen.generateWorldWithDirt(nums);
+		Canvas c = new Canvas(world);
+		Window frame = new Window(c);
+		//frame.setBackground(Color.cyan);
+		frame.pack();
+		frame.setSize( tileWidth*10, (tileHeight*worldHeight) );
+		c.setSize(frame.getSize());
+		c.repaint();
+		
 	}
 	
 	public static Image readImageFromCodebase(String imageName){
