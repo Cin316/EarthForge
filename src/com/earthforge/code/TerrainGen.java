@@ -31,7 +31,7 @@ public class TerrainGen {
 			}
 			if(direction==0){
 				//Go straight.
-				realHeight = Math.round(realHeight); //Brings realHeight to a .0 value.
+				realHeight = java.lang.Math.round(realHeight); //Brings realHeight to a .0 value.
 				currentHeight = (int) realHeight;
 			}else if(direction==1){
 				//Go up.
@@ -39,14 +39,14 @@ public class TerrainGen {
 					changeRate = RandomHelper.randomDouble(b.getMaximumChange(), b.getMinimumChange());
 				}
 				realHeight = realHeight - changeRate;
-				currentHeight = (int) Math.ceil(realHeight);
+				currentHeight = (int) java.lang.Math.ceil(realHeight);
 			}else if (direction==2){
 				//Go down.
 				if (!continueDirection){
 					changeRate = RandomHelper.randomDouble(b.getMaximumChange(), b.getMinimumChange());
 				}
 				realHeight = realHeight + changeRate;
-				currentHeight = (int) Math.floor(realHeight);
+				currentHeight = (int) java.lang.Math.floor(realHeight);
 			}
 			heightNums[i] = currentHeight; //Adds the currentValue to the array of ints.
 			//Determine whether to continue the direction of change direction.
@@ -68,7 +68,7 @@ public class TerrainGen {
 			}
 			if(direction==0){
 				//Go straight.
-				realHeight = Math.round(realHeight); //Brings realHeight to a .0 value.
+				realHeight = java.lang.Math.round(realHeight); //Brings realHeight to a .0 value.
 				currentHeight = (int) realHeight;
 			}else if(direction==1){
 				//Go down.
@@ -76,14 +76,14 @@ public class TerrainGen {
 					changeRate = RandomHelper.randomDouble(b.getMaximumChange(), b.getMinimumChange());
 				}
 				realHeight = realHeight - changeRate;
-				currentHeight = (int) Math.ceil(realHeight);
+				currentHeight = (int) java.lang.Math.ceil(realHeight);
 			}else if (direction==2){
 				//Go up.
 				if (!continueDirection){
 					changeRate = RandomHelper.randomDouble(b.getMaximumChange(), b.getMinimumChange());
 				}
 				realHeight = realHeight + changeRate;
-				currentHeight = (int) Math.floor(realHeight);
+				currentHeight = (int) java.lang.Math.floor(realHeight);
 			}
 			heightNums[i] = currentHeight; //Adds the currentValue to the array of ints.
 			//Determine whether to continue the direction of change direction.

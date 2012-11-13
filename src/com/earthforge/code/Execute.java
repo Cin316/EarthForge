@@ -11,6 +11,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import com.earthforge.control.KeyController;
 import com.earthforge.obj.*;
 import com.earthforge.objSpec.*;
 import com.utilis.game.gui.*;
@@ -23,7 +24,7 @@ public class Execute {
 	
 	public static final int tileWidth = 32;
 	public static final int tileHeight = 32;
-	public static final int worldHeight = 15;
+	public static final int worldHeight = 20;
 	public static final String version = "v. Alpha 0.1";
 	
 	public static void main(String[] args) {
@@ -33,15 +34,31 @@ public class Execute {
 	}
 	
 	public static void displayWindowWithWorld(){
-		int[] nums = TerrainGen.generateHeights(new Grasslands(1.1, 0.2), 10, worldHeight);
+		int[] nums = TerrainGen.generateHeights(new Grasslands(1.1, 0.2), 20, worldHeight);
 		World world = TerrainGen.generateWorldWithDirt(nums);
-		Canvas c = new Canvas(world);
+		ScrollingCanvas c = new ScrollingCanvas(world);
 		Window frame = new Window(c);
-		//frame.setBackground(Color.cyan);
+		ScrollingEntity person = new ScrollingEntity(readImageFromCodebase("/images/Dirt.png"));
+		KeyController kc = new KeyController(c);
+		
+		frame.addKeyListener(kc);
+		
 		frame.pack();
-		frame.setSize( tileWidth*10, (tileHeight*worldHeight) );
-		c.setSize(frame.getSize());
+		frame.setSize( tileWidth*10, (tileHeight*10) );
 		c.repaint();
+		
+		c.setCenterEntity(person);
+		//person.setRealX( (frame.getWidth()-person.getWidth()) /2);
+		//person.setRealY( (frame.getHeight()-person.getHeight()) /2);
+		person.setX((frame.getWidth()-person.getWidth()) /2);
+		person.setY((frame.getWidth()-person.getHeight()) /2);
+		
+		c.repaint();
+		
+		while(true){
+			Utilis.delay(10);
+			c.repaint();
+		}
 		
 	}
 	
