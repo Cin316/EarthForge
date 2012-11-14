@@ -16,15 +16,23 @@ public class KeyController implements KeyListener {
 	
 	public void keyPressed(KeyEvent k) {
 		if (k.getKeyCode()==KeyEvent.VK_W){
-			scroll.getCenterEntity().moveUp(Execute.tileHeight);
+			if( (scroll.getCenterEntity().getY()>0) ){
+				scroll.getCenterEntity().moveUp(Execute.tileHeight);
+			}
 		}else if (k.getKeyCode()==KeyEvent.VK_S){
-			scroll.getCenterEntity().moveDown(Execute.tileHeight);
+			if( !( (scroll.getCenterEntity().getY()) + (Execute.windowHeight*Execute.tileHeight) == Execute.worldHeight*Execute.tileHeight) ){
+				scroll.getCenterEntity().moveDown(Execute.tileHeight);
+			}
 		}else if (k.getKeyCode()==KeyEvent.VK_A){
-			scroll.getCenterEntity().moveLeft(Execute.tileWidth);
+			if( (scroll.getCenterEntity().getX()>0) ){
+				scroll.getCenterEntity().moveLeft(Execute.tileWidth);
+			}
 		}else if (k.getKeyCode()==KeyEvent.VK_D){
-			scroll.getCenterEntity().moveRight(Execute.tileWidth);
+			if( !( (scroll.getCenterEntity().getX()) + (Execute.windowWidth*Execute.tileWidth) == Execute.worldWidth*Execute.tileWidth) ){
+				scroll.getCenterEntity().moveRight(Execute.tileWidth);
+			}
 		}
-
+		
 	}
 
 	public void keyReleased(KeyEvent k) {

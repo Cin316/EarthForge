@@ -1,6 +1,7 @@
 package com.earthforge.code;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Image;
 import java.io.File;
@@ -24,7 +25,10 @@ public class Execute {
 	
 	public static final int tileWidth = 32;
 	public static final int tileHeight = 32;
-	public static final int worldHeight = 20;
+	public static final int windowWidth = 10; // In tiles.
+	public static final int windowHeight = 10; // In tiles.
+	public static final int worldHeight = 20; // In tiles.
+	public static final int worldWidth = 20; // In tiles.
 	public static final String version = "v. Alpha 0.1";
 	
 	public static void main(String[] args) {
@@ -34,7 +38,7 @@ public class Execute {
 	}
 	
 	public static void displayWindowWithWorld(){
-		int[] nums = TerrainGen.generateHeights(new Grasslands(1.1, 0.2), 20, worldHeight);
+		int[] nums = TerrainGen.generateHeights(new Grasslands(1.1, 0.2), worldWidth, worldHeight);
 		World world = TerrainGen.generateWorldWithDirt(nums);
 		ScrollingCanvas c = new ScrollingCanvas(world);
 		Window frame = new Window(c);
@@ -44,14 +48,17 @@ public class Execute {
 		frame.addKeyListener(kc);
 		
 		frame.pack();
-		frame.setSize( tileWidth*10, (tileHeight*10) );
+		frame.setSize( tileWidth*windowWidth, (tileHeight*windowHeight) - 10 );
+		frame.setPreferredSize(new Dimension( (Execute.worldHeight*Execute.tileHeight), (world.getNumOfTilesX()*Execute.tileWidth)) );
+		frame.setResizable(false);
+		c.setBackground(Color.cyan);
 		c.repaint();
 		
 		c.setCenterEntity(person);
 		//person.setRealX( (frame.getWidth()-person.getWidth()) /2);
 		//person.setRealY( (frame.getHeight()-person.getHeight()) /2);
-		person.setX((frame.getWidth()-person.getWidth()) /2);
-		person.setY((frame.getWidth()-person.getHeight()) /2);
+		person.setX(0);
+		person.setY(0);
 		
 		c.repaint();
 		
