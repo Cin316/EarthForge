@@ -8,6 +8,7 @@ import java.io.File;
 import java.net.URLDecoder;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -28,7 +29,7 @@ public class Execute {
 	public static final int windowWidth = 10; // In tiles.
 	public static final int windowHeight = 10; // In tiles.
 	public static final int worldHeight = 20; // In tiles.
-	public static final int worldWidth = 20; // In tiles.
+	public static final int worldWidth = 200; // In tiles.
 	public static final String version = "v. Alpha 0.1";
 	
 	public static void main(String[] args) {
@@ -73,16 +74,10 @@ public class Execute {
 		
 		//Gets and creates image object.
 		try {
-			//Finds location of were the program is running and sets codeBase to it.
-			String path = Execute.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-			//Removes "/bin" from path.
-			path = path.substring(0, (path.length()-1) - 4 );
-			String decodedPath = URLDecoder.decode(path, "UTF-8");
-			//Creates image using decodePath.
-			File img1 = new File(decodedPath+imageName);
-			Image image = ImageIO.read(img1);
+			ImageIcon image = new ImageIcon(Execute.class.getResource(imageName));
+			//Image image = ImageIO.read(img1);
 			//Put image in JLabel.
-			return image;
+			return image.getImage();
 		}catch (Exception e) {
 			//Error message
 			JOptionPane.showMessageDialog(null, "There was an error: \n"+e, "Error!", 1);
