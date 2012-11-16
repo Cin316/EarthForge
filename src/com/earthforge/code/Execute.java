@@ -30,7 +30,7 @@ public class Execute {
 	public static final int windowHeight = 10; // In tiles.
 	public static final int worldHeight = 20; // In tiles.
 	public static final int worldWidth = 200; // In tiles.
-	public static final String version = "v. Alpha 0.1";
+	public static final String version = "v. Alpha 0.1.1";
 	
 	public static void main(String[] args) {
 		
@@ -44,14 +44,17 @@ public class Execute {
 		ScrollingCanvas c = new ScrollingCanvas(world);
 		Window frame = new Window(c);
 		ScrollingEntity person = new ScrollingEntity(readImageFromCodebase("/images/Dirt.png"));
+		Dimension size = new Dimension( (worldHeight*tileHeight), (world.getNumOfTilesX()*tileWidth)); 
 		KeyController kc = new KeyController(c);
 		
 		frame.addKeyListener(kc);
 		
-		frame.pack();
 		frame.setSize( tileWidth*windowWidth, (tileHeight*windowHeight) - 10 );
-		frame.setPreferredSize(new Dimension( (Execute.worldHeight*Execute.tileHeight), (world.getNumOfTilesX()*Execute.tileWidth)) );
+		frame.setPreferredSize(size);
 		frame.setResizable(false);
+		c.setMinimumSize(size);
+		c.setMaximumSize(size);
+		c.setPreferredSize(size);
 		c.setBackground(Color.cyan);
 		c.repaint();
 		
@@ -60,8 +63,6 @@ public class Execute {
 		//person.setRealY( (frame.getHeight()-person.getHeight()) /2);
 		person.setX(0);
 		person.setY(0);
-		
-		c.repaint();
 		
 		while(true){
 			Utilis.delay(10);
