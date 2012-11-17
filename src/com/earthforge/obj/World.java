@@ -12,7 +12,7 @@ public class World extends Screen {
 	protected int numOfBiomes = 1;
 	
 	public World(int length) {
-		super(length, Execute.worldHeight, Execute.tileHeight, Execute.tileWidth);
+		super(length, GameConstants.worldHeight, GameConstants.tileHeight, GameConstants.tileWidth);
 		
 		biomes = new ArrayList<Biome>(numOfBiomes);
 		biomeLength = new ArrayList<Integer>(numOfBiomes);

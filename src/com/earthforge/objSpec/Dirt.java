@@ -14,7 +14,7 @@ public class Dirt extends Block {
 	//Image is of dirt.
 	public static Image image = Execute.readImageFromCodebase("/images/Dirt.png");
 	//CollisionBox is completely full.
-	public static CollisionBox collide = new CollisionBox(Execute.tileWidth, Execute.tileHeight, true);
+	public static CollisionBox collide = new CollisionBox(GameConstants.tileWidth, GameConstants.tileHeight, true);
 	//How long it takes to destroy Dirt.  Measured in milliseconds.
 	public static long destroyTime = 400;
 	

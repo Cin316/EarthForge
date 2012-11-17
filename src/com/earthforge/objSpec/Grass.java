@@ -4,6 +4,7 @@ import java.awt.Image;
 
 import com.earthforge.code.BlockDestroyer;
 import com.earthforge.code.Execute;
+import com.earthforge.code.GameConstants;
 import com.earthforge.obj.Block;
 import com.utilis.game.obj.CollisionBox;
 
@@ -15,7 +16,7 @@ public class Grass extends Block{
 	//Image is of grass.
 	public static Image image = Execute.readImageFromCodebase("/images/Grass.png");
 	//CollisionBox is completely full.
-	public static CollisionBox collide = new CollisionBox(Execute.tileWidth, Execute.tileHeight, true);
+	public static CollisionBox collide = new CollisionBox(GameConstants.tileWidth, GameConstants.tileHeight, true);
 	//How long it takes to destroy Grass.  Measured in milliseconds.
 	public static long destroyTime = 380;
 	
